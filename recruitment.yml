@@ -1,25 +1,5 @@
 server:
-  port: 8087
-  
-resilience4j:
-  retry:
-    instances:
-      retryApi:
-        max-attempts: 3
-        wait-duration: 5s
-        retry-exceptions: 
-          - com.pdev.rempms.recruitmentservice.exception.FeignCustomException
-
-spring:
-  cloud:
-    consul:
-      host: localhost
-      port: 8500
-      discovery:
-        instanceId: ${spring.application.name}:${random.value}
-    openfeign:
-      okhttp:
-        enabled: true         
+  port: 8087      
 
   profiles:
     active: prod
