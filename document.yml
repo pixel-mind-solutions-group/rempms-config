@@ -1,0 +1,31 @@
+server:
+  port: 8084
+  
+resilience4j:
+  retry:
+    instances:
+      retryApi:
+        max-attempts: 3
+        wait-duration: 5s
+        retry-exceptions: 
+          - com.pdev.rempms.documentservice.exception.FeignCustomException
+
+
+spring:
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        instanceId: ${spring.application.name}:${random.value}
+    openfeign:
+      okhttp:
+        enabled: true
+
+  profiles:
+    active: prod
+  application:
+    name: rempms-document-service
+
+
+
