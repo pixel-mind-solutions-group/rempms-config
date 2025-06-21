@@ -2,6 +2,6 @@ server:
   port: 8082
 
   profiles:
-    active: dev
+    active: prod
   application:
     name: rempms-candidate-service
