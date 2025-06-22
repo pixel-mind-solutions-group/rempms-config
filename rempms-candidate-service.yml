@@ -20,8 +20,6 @@ spring:
     openfeign:
       okhttp:
         enabled: true
-  config:
-    import: "configserver:http://localhost:8071/"
 
   profiles:
     active: test
