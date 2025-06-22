@@ -11,11 +11,11 @@ spring:
   main:
     web-application-type: reactive
     
-#  cloud:
-#    consul:
-#      discovery:
-#        register: true
-#        prefer-ip-address: true
+ cloud:
+   consul:
+     discovery:
+       register: true
+       prefer-ip-address: true
     gateway:
       routes:
         - id: iam-service
