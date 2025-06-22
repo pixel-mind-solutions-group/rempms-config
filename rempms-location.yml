@@ -1,0 +1,39 @@
+server:
+  port: 8084
+
+resilience4j:
+  retry:
+    instances:
+      retryApi:
+        max-attempts: 3
+        wait-duration: 5s
+        retry-exceptions: #The list of that exception that will trigger a retry
+          - com.pdev.rempms.locationservice.exception.FeignCustomException
+
+spring:
+  cloud:
+    consul:
+      host: ${CONSUL_SERVER_ADDRESS:localhost}
+      port: 8500
+      discovery:
+        instanceId: ${spring.application.name}:${random.value}
+    openfeign:
+      okhttp:
+        enabled: true
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+logging:
+  level:
+    org:
+      springframework:
+        cloud: DEBUG
