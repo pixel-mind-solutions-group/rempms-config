@@ -1,7 +1,10 @@
+server:
+  port: 8081
+
 spring:
   main:
     web-application-type: reactive
- 
+
   cloud:
     consul:
       host: ${CONSUL_SERVER_ADDRESS:localhost}
@@ -10,52 +13,53 @@ spring:
         instanceId: ${spring.application.name}:${random.value}
         register: true
         prefer-ip-address: true
-        
-    openfeign:
-      okhttp:
-        enabled: true
-        
+
     gateway:
       routes:
         - id: iam-service
-          uri: lb://iam-service  # Replace with actual service port
+          uri: lb://iam-service
           predicates:
             - Path=/api/iam/**
 
         - id: pdev-keycloak-service
-          uri: lb://pdev-keycloak-service  # Replace with actual service port
+          uri: lb://pdev-keycloak-service
           predicates:
             - Path=/api/kcs/**
 
         - id: rempms-location-service
-          uri: lb://rempms-location-service  # Replace with actual service port
+          uri: lb://rempms-location-service
           predicates:
             - Path=/api/location/**
 
         - id: rempms-communication-service
-          uri: lb://rempms-communication-service  # Replace with actual service port
+          uri: lb://rempms-communication-service
           predicates:
             - Path=/api/communication/**
 
         - id: rempms-recruitment-service
-          uri: lb://rempms-recruitment-service  # Replace with actual service port
+          uri: lb://rempms-recruitment-service
           predicates:
             - Path=/api/recruitment/**
 
         - id: rempms-candidate-service
-          uri: http://localhost:7080  # Replace with actual service port
+          uri: http://localhost:7080
           predicates:
             - Path=/api/candidate/**
 
         - id: rempms-document-service
-          uri: lb://rempms-document-service  # Replace with actual service port
+          uri: lb://rempms-document-service
           predicates:
             - Path=/api/document/**
 
         - id: rempms-draft-service
-          uri: lb://rempms-draft-service  # Replace with actual service port
+          uri: lb://rempms-draft-service
           predicates:
             - Path=/api/draft/**
+
+  openfeign:
+    okhttp:
+      enabled: true
+
 logging:
   level:
     org:
