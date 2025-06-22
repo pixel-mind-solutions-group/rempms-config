@@ -27,7 +27,7 @@ spring:
             - Path=/api/kcs/**
 
         - id: rempms-location-service
-          uri: lb://rempms-location-service
+          uri: http://localhost:8084
           predicates:
             - Path=/api/location/**
 
