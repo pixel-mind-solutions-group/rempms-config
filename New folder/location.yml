@@ -1,7 +1,0 @@
-server:
-  port: 8086
-
-  profiles:
-    active: prod
-  application:
-    name: rempms-location-service
