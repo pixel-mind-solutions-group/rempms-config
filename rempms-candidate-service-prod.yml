@@ -12,23 +12,3 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: none
-  
-resilience4j:
-  retry:
-    instances:
-      retryApi:
-        max-attempts: 3
-        wait-duration: 5s
-        retry-exceptions:
-          - com.pdev.rempms.candidateservice.exception.FeignCustomException
-
-spring:
-  cloud:
-    consul:
-      host: localhost
-      port: 8500
-      discovery:
-        instanceId: ${spring.application.name}:${random.value}
-    openfeign:
-      okhttp:
-        enabled: true
