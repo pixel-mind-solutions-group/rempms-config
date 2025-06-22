@@ -1,7 +1,0 @@
-server:
-  port: 8085
-
-  profiles:
-    active: prod
-  application:
-    name: rempms-draft-service
