@@ -20,8 +20,3 @@ spring:
     openfeign:
       okhttp:
         enabled: true
-
-  profiles:
-    active: prod
-  application:
-    name: rempms-candidate-service
