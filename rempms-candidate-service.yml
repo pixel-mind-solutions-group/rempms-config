@@ -22,6 +22,6 @@ spring:
         enabled: true
 
   profiles:
-    active: test
+    active: prod
   application:
     name: rempms-candidate-service
