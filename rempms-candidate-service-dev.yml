@@ -3,7 +3,7 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/rempms_candidate
     username: postgres
-    password: 123
+    password: rempmsdev@123
     driverClassName: org.postgresql.Driver
   jpa:
     show-sql: true
