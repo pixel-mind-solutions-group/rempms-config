@@ -42,7 +42,7 @@ spring:
             - Path=/api/recruitment/**
 
         - id: rempms-candidate-service
-          uri: http://localhost:7080
+          uri: http://localhost:8082
           predicates:
             - Path=/api/candidate/**
 
