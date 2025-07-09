@@ -52,7 +52,7 @@ spring:
             - Path=/api/document/**
 
         - id: rempms-draft-service
-          uri: http://localhost:8081
+          uri: http://localhost:8085
           predicates:
             - Path=/api/draft/**
 
