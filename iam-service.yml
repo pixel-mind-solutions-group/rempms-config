@@ -32,11 +32,7 @@ management:
       exposure:
         include: "*"
 
-one:
-  time:
-    password:
-      CHAR_POOL: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*+=-_"
-      PASSWORD_LENGTH: 8
+
 
 logging:
   level:
