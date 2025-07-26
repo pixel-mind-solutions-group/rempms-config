@@ -17,7 +17,7 @@ spring:
       port: 8500
       discovery:
         register: true
-        instanceId: ${spring.application.name}:${random.value}
+        instanceId: rempms-location-service:${random.value}
         service-name: rempms-location-service
     openfeign:
       okhttp:
