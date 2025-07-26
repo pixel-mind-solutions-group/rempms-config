@@ -11,7 +11,7 @@ resilience4j:
           - com.pdev.rempms.locationservice.exception.FeignCustomException
 
 spring:
-  cloud:
+#  cloud:
 #    consul:
 #      host: ${CONSUL_SERVER_ADDRESS:localhost}
 #      port: 8500
@@ -19,9 +19,9 @@ spring:
 #        register: true
 #        instanceId: rempms-location-service
 #        service-name: rempms-location-service
-    openfeign:
-      okhttp:
-        enabled: true
+#    openfeign:
+#      okhttp:
+#        enabled: true
   rabbitmq:
     host: localhost
     port: 5672
