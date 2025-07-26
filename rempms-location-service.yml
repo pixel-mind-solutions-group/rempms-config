@@ -16,7 +16,9 @@ spring:
       host: ${CONSUL_SERVER_ADDRESS:localhost}
       port: 8500
       discovery:
+        register: true
         instanceId: ${spring.application.name}:${random.value}
+        service-name: rempms-location-service
     openfeign:
       okhttp:
         enabled: true
