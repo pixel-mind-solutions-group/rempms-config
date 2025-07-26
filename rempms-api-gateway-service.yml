@@ -17,7 +17,7 @@ spring:
               lower-case-service-id: true
       httpclient:
         connect-timeout: 10000
-        response-timeout: 1000
+        response-timeout: 60000
 
 eureka:
   client:
