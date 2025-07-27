@@ -65,7 +65,7 @@ resilience4j.retry:
       max-attempts: 3                # Total number of attempts (initial + 2 retries)
       wait-duration: 5s              # Wait time between retries
       retry-exceptions:
-        - com.pdev.rempms.locationservice.exception.FeignCustomException
+        - com.pdev.rempms.draftservice.exception.FeignCustomException.java
       exponential-backoff:
         enabled: true
         multiplier: 2               # Doubles wait duration on each retry
