@@ -1,22 +1,12 @@
 server:
   port: 9001
 
-resilience4j:
-  retry:
-    instances:
-      retryApi:
-        max-attempts: 3
-        wait-duration: 5s
-        retry-exceptions: #The list of that exception that will trigger a retry
-          - com.pdev.user_service.exception.FeignCustomException
-
 spring:
   cloud:
-#    consul:
-#      host: ${CONSUL_SERVER_ADDRESS:localhost}
-#      port: 8500
-#      discovery:
-#        instanceId: ${spring.application.name}:${random.value}
+    circuitbreaker:
+      enabled: true
+      retry:
+        enabled: true
     openfeign:
       okhttp:
         enabled: true
@@ -31,7 +21,7 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: "http://localhost:8070/eureka/"
+      defaultZone: http://localhost:8070/eureka/
   instance:
     prefer-ip-address: true
 
@@ -40,15 +30,49 @@ management:
     web:
       exposure:
         include: "*"
-
-one:
-  time:
-    password:
-      CHAR_POOL: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*+=-_"
-      PASSWORD_LENGTH: 8
+  endpoint:
+    shutdown:
+      enabled: true
+    health:
+      probes:
+        enabled: true
+  health:
+    liveness-state:
+      enabled: true
+    readiness-state:
+      enabled: true
 
 logging:
   level:
     org:
       springframework:
         cloud: DEBUG
+
+resilience4j.circuitbreaker:
+  configs:
+    default:
+      slidingWindowSize: 10
+      waitDurationInOpenState: 10s
+      permittedNumberOfCallsInHalfOpenState: 2
+      failureRateThreshold: 50
+      slowCallRateThreshold: 50
+      slowCallDurationThreshold: 10s
+      maxWaitDurationInHalfOpenState: 0s
+
+resilience4j.retry:
+  configs:
+    default:
+      max-attempts: 3                # Total number of attempts (initial + 2 retries)
+      wait-duration: 5s              # Wait time between retries
+      retry-exceptions:
+        - com.pdev.rempms.locationservice.exception.FeignCustomException
+      exponential-backoff:
+        enabled: true
+        multiplier: 2               # Doubles wait duration on each retry
+        max-wait-duration: 10s      # Caps wait duration between retries
+
+one:
+  time:
+    password:
+      CHAR_POOL: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*+=-_"
+      PASSWORD_LENGTH: 8
