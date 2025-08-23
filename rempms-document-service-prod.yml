@@ -3,7 +3,7 @@ spring:
     prefix: "file:src/main/resources/template/"
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/rempms_document
+    url: jdbc:postgresql://${POSTGRES_SERVER_ADDRESS:localhost:5432}/rempms_document
     username: postgres
     password: rempmsprod@123
     driverClassName: org.postgresql.Driver
