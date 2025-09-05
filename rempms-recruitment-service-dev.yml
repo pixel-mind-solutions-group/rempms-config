@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/rempms_recruitment
+    url: jdbc:postgresql://localhost:5432/rempms_recruitment_management
     username: postgres
     password: rempmsdev@123
     driverClassName: org.postgresql.Driver
