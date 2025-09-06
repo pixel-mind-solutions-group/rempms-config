@@ -1,5 +1,5 @@
 server:
-  port: 8186
+  port: 8686
 
 spring:
   cloud:
