@@ -22,6 +22,10 @@ management:
     health:
       probes:
         enabled: true
+  metrics:
+    tags:
+      enabled: true
+      application: ${spring.application.name}
 
 eureka:
   client:

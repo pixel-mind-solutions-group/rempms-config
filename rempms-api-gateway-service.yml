@@ -37,6 +37,10 @@ management:
     web:
       exposure:
         include: "*"
+  metrics:
+    tags:
+      enabled: true
+      application: ${spring.application.name}
 
 logging:
   level:

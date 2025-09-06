@@ -41,6 +41,10 @@ management:
       enabled: true
     readiness-state:
       enabled: true
+  metrics:
+    tags:
+      enabled: true
+      application: ${spring.application.name}
 
 logging:
   level:
