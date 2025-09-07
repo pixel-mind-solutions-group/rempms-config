@@ -56,6 +56,8 @@ logging:
     org:
       springframework:
         cloud: DEBUG
+  pattern:
+    level: "%5p [${spring.application.name},%X{trace_id},%X{span_id}]"
 
 # Circuit breaker pattern configuration
 resilience4j.circuitbreaker:
