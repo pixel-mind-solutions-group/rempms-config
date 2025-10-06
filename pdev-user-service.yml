@@ -17,7 +17,7 @@ spring:
       kafka:
         binder:
           brokers:
-            - localhost:9092
+            - localhost:9094
           autoCreateTopics: true
       bindings:
         userRegistration-out-0:
