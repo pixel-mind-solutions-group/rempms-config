@@ -7,18 +7,23 @@ spring:
       enabled: true
       retry:
         enabled: true
+
     openfeign:
       okhttp:
         enabled: true
+
     stream:
-      bindings:
-        informRegistration-out-0:
-          destination: inform-registration
       default-binder: kafka
       kafka:
         binder:
           brokers:
             - localhost:9092
+          autoCreateTopics: true
+      bindings:
+        userRegistration-out-0:
+          destination: user-registration
+          content-type: application/json
+
   rabbitmq:
     host: localhost
     port: 5672
