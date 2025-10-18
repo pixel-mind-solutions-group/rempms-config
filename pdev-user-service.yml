@@ -20,8 +20,8 @@ spring:
             - localhost:9094
           autoCreateTopics: true
       bindings:
-        userRegistration-out-0:
-          destination: user-registration
+        userRegistrationEmail-out-0:
+          destination: user-registration-email
           content-type: application/json
 
   rabbitmq:
