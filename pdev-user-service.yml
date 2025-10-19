@@ -24,7 +24,7 @@ spring:
           destination: user-registration-email
           content-type: application/json
         emailVerificationUrlEmail-out-0:
-          destination: email-verification-url-email
+          destination: email-verification-url
           content-type: application/json
 
   rabbitmq:
