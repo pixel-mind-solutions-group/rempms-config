@@ -13,8 +13,17 @@ spring:
     hibernate:
       ddl-auto: none
 
+  keycloak:
+    base:
+      url: http://localhost:8883
+
   security:
     oauth2:
       resourceserver:
-        jwt:
-          issuer-uri: http://localhost:8883/realms/PIXEL_HIRE
+        client:
+          provider:
+            keycloak:
+             issuer-uri: ${keycloak.base.url}/realms/PIXEL_HIRE
+            jwt:
+              issuer-uri: ${keycloak.base.url}/realms/PIXEL_HIRE
+              jwk-set-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs
