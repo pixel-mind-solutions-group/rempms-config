@@ -13,9 +13,9 @@ spring:
     hibernate:
       ddl-auto: none
 
-  keycloak:
-    base:
-      url: http://localhost:8883
+keycloak:
+  base:
+    url: http://localhost:8883
 
   security:
     oauth2:
