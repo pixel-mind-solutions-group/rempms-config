@@ -24,3 +24,9 @@ document:
   max:
     image: 4000000
     document: 50000000
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8883/realms/PIXEL_HIRE
