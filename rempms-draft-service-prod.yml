@@ -9,11 +9,11 @@ spring:
 #      password: 123
 #      authentication-database: admin
 
-security:
-  authorization: "disabled"
-
   security:
     oauth2:
       resourceserver:
         jwt:
           issuer-uri: http://localhost:8883/realms/PIXEL_HIRE
+
+security:
+  authorization: "disabled"
